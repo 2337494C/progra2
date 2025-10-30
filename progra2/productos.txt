@@ -1,0 +1,6 @@
+Laptop;20000;20
+Mouse;1800;4
+Teclado;980;2
+Monitor;4900;9
+Cable;80;40
+Cubos de carga;230;22
