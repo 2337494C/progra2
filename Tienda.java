@@ -77,4 +77,23 @@ public class Tienda {
 
         tienda.iniciar();
     }
+public void cargarProductosDesdeArchivo(String ruta)
+{
+    try (BufferredReader br = new BufferedReader(new FileReader (ruta)))
+    {
+       wwhile ((linea = br.readLine()) != null){
+        String[] datos = linea.split(",");
+        if (datos.length == 3) {
+            String nombre = datos[0].trim():
+            double precio = Double.parsenDouble(datos[1].trim());
+            int stock = Integer.parseInt(datos[2].trim());
+            catalogo.add(new Producto (nombre, precio, stock));
+        }
+       }
+    }  ccatch (I0Exception e){
+        System.out.println("Error al leer el archivo de productos: " + e.getMessage());
+    }
+}
+
+//public void cargarClientesDesdeArchivos
 }
