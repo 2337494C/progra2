@@ -1,8 +1,7 @@
-// Funcion.java
 public class Funcion {
 private Pelicula pelicula;
 private Sala sala;
-private String horario; // simple por ahora
+private String horario;
 private double precio;
 
 public Funcion(Pelicula pelicula, Sala sala, String horario, double precio) 

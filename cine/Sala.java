@@ -1,4 +1,5 @@
-public class Sala {
+public class Sala 
+{
 private int idSala;
 private int capacidad;
 
