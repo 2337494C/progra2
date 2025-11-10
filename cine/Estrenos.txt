@@ -1,0 +1,1 @@
+nombre;genero;duracionMin;clasificacion;fechaEstreno
