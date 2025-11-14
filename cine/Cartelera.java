@@ -21,6 +21,52 @@ public void cargar()
     cargarEstrenos("estrenos.txt");
 }
 
+private void cargarPeliculas(String ruta) 
+{
+    peliculas.clear();
+    try (BufferedReader br = new BufferedReader(new FileReader(ruta))) 
+    {
+        String linea;
+        while ((linea = br.readLine()) != null) 
+        {
+            if (linea.isBlank()) continue;
+            String[] p = linea.split(";");
+            //nombre;genero;duracion;clasificacion
+            if (p.length < 4) continue;
+            peliculas.add(new Pelicula(p[0].trim(), p[1].trim(), Integer.parseInt(p[2].trim()), p[3].trim()));
+        }
+    } catch (IOException | NumberFormatException e) 
+    {
+        System.out.println("error" + ruta + ": " + e.getMessage());
+    }
+}
+
+private void cargarFunciones(String ruta) 
+{
+    funciones.clear();
+    try (BufferedReader br = new BufferedReader(new FileReader(ruta))) 
+    {
+        String linea;
+        while ((linea = br.readLine()) != null) 
+        {
+            if (linea.isBlank()) continue;
+            String[] f = linea.split(";");
+            //nombrePelicula;idSala;horario;precio
+            if (f.length < 4) continue;
+            Pelicula p = buscarPeliculaPorNombre(f[0].trim());
+            if (p == null) continue;
+            int idSala = Integer.parseInt(f[1].trim());
+            Sala s = new Sala(idSala, 60);
+            String horario = f[2].trim();
+            double precio = Double.parseDouble(f[3].trim());
+            funciones.add(new Funcion(p, s, horario, precio));
+        }
+    } catch (IOException | NumberFormatException e) 
+    {
+        System.out.println("error" + ruta + ": " + e.getMessage());
+    }
+}
+
 private void cargarClientes(String ruta) 
 {
     clientes.clear();
