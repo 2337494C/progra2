@@ -25,13 +25,19 @@ public void iniciar()
 
                 switch (opcion) 
                 {
-                        case 1 -> cartelera.mostrarPeliculas();
-                        case 2 -> consultarHorarios();
-                        case 3 -> comprarBoleto();
-                        case 4 -> cartelera.mostrarClientes();
-                        case 5 -> cartelera.mostrarEstrenos();
-                        case 0 -> System.out.println("Adios.");
-                        default -> System.out.println("opcion invalida.");
+                        case 1: cartelera.mostrarPeliculas();
+                        break;
+                        case 2: consultarHorarios();
+                        break;
+                        case 3: comprarBoleto();
+                        break;
+                        case 4: cartelera.mostrarClientes();
+                        break;
+                        case 5: cartelera.mostrarEstrenos();
+                        break;
+                        case 0: System.out.println("Adios.");
+                        break;
+                        default:                System.out.println("opcion invalida.");
                 }
         } while (opcion != 0);
 }
@@ -81,7 +87,7 @@ private void comprarBoleto()
                 return; 
         }
         int asiento = f.reservarAsiento();
-        if (asiento == -1);
+        if (asiento == -1) 
         { 
                 System.out.println("sin lugares"); 
                 return; 
